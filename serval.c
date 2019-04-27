@@ -27,11 +27,25 @@ int serval_setopt(serval_t *serval, serval_opt_t opt, void *arg) {
             return 0;
             break;
         }
-        case SERVAL_OPT_IFACE:
-        case SERVAL_OPT_CONNECT_FUNC:
-        case SERVAL_OPT_CONNECT_PRIV:
-        case SERVAL_OPT_MESSAGE_FUNC:
-        case SERVAL_OPT_MESSAGE_PRIV:
+        case SERVAL_OPT_IFACE: {
+            break;
+        }
+        case SERVAL_OPT_CONNECT_FUNC: {
+            serval->connect_func = arg;
+            break;
+        }
+        case SERVAL_OPT_CONNECT_PRIV: {
+            serval->connect_priv = arg;
+            break;
+        }
+        case SERVAL_OPT_MESSAGE_FUNC: {
+            serval->message_func = arg;
+            break;
+        }
+        case SERVAL_OPT_MESSAGE_PRIV: {
+            serval->message_priv = arg;
+            break;
+        }
         case SERVAL_OPT_INVALID:
         default: {
             LOG_ERROR("Invalid setopt parameter: <%d>", opt);
